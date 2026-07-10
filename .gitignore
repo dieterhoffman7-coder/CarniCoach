@@ -1,31 +1,15 @@
-# Gradle files
-.gradle/
-build/
-
-# Local configuration
-local.properties
-
-# Android Studio / IntelliJ
-.idea/
 *.iml
-
-# Android build files
-captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-*.aab
-output-metadata.json
-
-# Logs
-*.log
-
-# Keystore files
-*.jks
-*.keystore
-
-# macOS
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
 .DS_Store
-
-# Android profiling
-*.hprof
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties

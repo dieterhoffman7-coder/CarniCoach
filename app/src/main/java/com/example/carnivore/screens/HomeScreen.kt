@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.carnivore.components.DailyTipCard
+import com.example.carnivore.components.DailyWisdomCard
 import com.example.carnivore.components.ProgressCard
 import com.example.carnivore.components.QuickActionsCard
 import com.example.carnivore.components.TodayLessonCard
@@ -39,6 +40,10 @@ fun HomeScreen() {
         Spacer(modifier = Modifier.height(16.dp))
 
         DailyTipCard()
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        DailyWisdomCard()
 
         Spacer(modifier = Modifier.height(16.dp))
 
