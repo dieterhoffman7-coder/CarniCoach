@@ -14,6 +14,7 @@ import com.example.carnivore.screens.*
 import com.example.carnivore.storage.FavoritesStorage
 import com.example.carnivore.storage.MeasurementStorage
 import com.example.carnivore.storage.ProgressPhotoStorage
+import com.example.carnivore.storage.ShoppingListStorage
 import com.example.carnivore.ui.theme.CarnivoreTheme
 
 // Secondary screens reachable via the "More" tab rather than getting their
@@ -25,7 +26,11 @@ private val moreScreens = setOf(
     AppScreen.FAVORITES,
     AppScreen.MORE,
     AppScreen.LEARN,
-    AppScreen.ELECTROLYTE_CALCULATOR
+    AppScreen.ELECTROLYTE_CALCULATOR,
+    AppScreen.PROTEIN_CALCULATOR,
+    AppScreen.FAT_CALCULATOR,
+    AppScreen.RECIPES,
+    AppScreen.SHOPPING_LIST
 )
 
 class MainActivity : ComponentActivity() {
@@ -35,6 +40,7 @@ class MainActivity : ComponentActivity() {
         FavoritesStorage.init(applicationContext)
         ProgressPhotoStorage.init(applicationContext)
         MeasurementStorage.init(applicationContext)
+        ShoppingListStorage.init(applicationContext)
 
         setContent {
             CarnivoreTheme {
@@ -108,6 +114,10 @@ class MainActivity : ComponentActivity() {
                                 AppScreen.ELECTROLYTE_CALCULATOR -> ElectrolyteCalculatorScreen()
                                 AppScreen.PROGRESS_PHOTOS -> ProgressPhotosScreen()
                                 AppScreen.MEASUREMENTS -> MeasurementsScreen()
+                                AppScreen.PROTEIN_CALCULATOR -> ProteinCalculatorScreen()
+                                AppScreen.FAT_CALCULATOR -> FatCalculatorScreen()
+                                AppScreen.RECIPES -> RecipesScreen()
+                                AppScreen.SHOPPING_LIST -> ShoppingListScreen()
                             }
                         }
                     }
