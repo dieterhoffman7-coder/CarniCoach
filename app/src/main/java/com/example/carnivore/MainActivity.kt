@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import com.example.carnivore.data.LessonRepository
 import com.example.carnivore.screens.*
 import com.example.carnivore.storage.FavoritesStorage
+import com.example.carnivore.storage.ProgressPhotoStorage
 import com.example.carnivore.ui.theme.CarnivoreTheme
 
 // Secondary screens reachable via the "More" tab rather than getting their
@@ -31,6 +32,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         FavoritesStorage.init(applicationContext)
+        ProgressPhotoStorage.init(applicationContext)
 
         setContent {
             CarnivoreTheme {
@@ -90,7 +92,7 @@ class MainActivity : ComponentActivity() {
                             when (currentScreen) {
                                 AppScreen.HOME -> HomeScreen()
                                 AppScreen.PROGRAM -> ProgramScreen(onLessonSelected = { selectedDay = it })
-                                AppScreen.PROGRESS -> ProgressScreen()
+                                AppScreen.PROGRESS -> ProgressScreen(onOpenPhotos = { currentScreen = AppScreen.PROGRESS_PHOTOS })
                                 AppScreen.FOODS -> FoodsScreen()
                                 AppScreen.SYMPTOMS -> SymptomsScreen()
                                 AppScreen.FAQ -> FaqScreen()
@@ -99,6 +101,7 @@ class MainActivity : ComponentActivity() {
                                 AppScreen.MORE -> MoreScreen(onNavigate = { currentScreen = it })
                                 AppScreen.LEARN -> KnowledgeScreen()
                                 AppScreen.ELECTROLYTE_CALCULATOR -> ElectrolyteCalculatorScreen()
+                                AppScreen.PROGRESS_PHOTOS -> ProgressPhotosScreen()
                             }
                         }
                     }

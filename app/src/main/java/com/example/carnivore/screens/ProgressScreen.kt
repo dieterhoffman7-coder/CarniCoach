@@ -1,5 +1,6 @@
 package com.example.carnivore.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -10,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.example.carnivore.data.ProgressRepository
 
 @Composable
-fun ProgressScreen() {
+fun ProgressScreen(onOpenPhotos: () -> Unit = {}) {
 
     val progress = ProgressRepository.progress
 
@@ -54,7 +55,9 @@ fun ProgressScreen() {
         Spacer(modifier = Modifier.height(20.dp))
 
         Card(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { onOpenPhotos() }
         ) {
 
             Column(
@@ -62,12 +65,18 @@ fun ProgressScreen() {
             ) {
 
                 Text("📸 Progress Photos")
-                Text("Coming Soon")
+                Text(
+                    text = "Tap to view or add photos",
+                    style = MaterialTheme.typography.bodySmall
+                )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text("📏 Measurements")
-                Text("Coming Soon")
+                Text(
+                    text = "Coming Soon",
+                    style = MaterialTheme.typography.bodySmall
+                )
             }
         }
     }
