@@ -69,6 +69,13 @@ class MainActivity : ComponentActivity() {
                                 icon = { Text("❓") },
                                 label = { Text("FAQ") }
                             )
+
+                            NavigationBarItem(
+                                selected = currentScreen == AppScreen.EXPERTS,
+                                onClick = { currentScreen = AppScreen.EXPERTS; selectedDay = null },
+                                icon = { Text("🎓") },
+                                label = { Text("Experts") }
+                            )
                         }
                     }
                 ) { padding ->
@@ -87,6 +94,7 @@ class MainActivity : ComponentActivity() {
                                 AppScreen.FOODS -> FoodsScreen()
                                 AppScreen.SYMPTOMS -> SymptomsScreen()
                                 AppScreen.FAQ -> FaqScreen()
+                                AppScreen.EXPERTS -> ExpertsScreen()
                             }
                         }
                     }

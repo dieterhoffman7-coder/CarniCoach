@@ -6,5 +6,6 @@ enum class AppScreen {
     PROGRESS,
     SYMPTOMS,
     FOODS,
-    FAQ
+    FAQ,
+    EXPERTS
 }
