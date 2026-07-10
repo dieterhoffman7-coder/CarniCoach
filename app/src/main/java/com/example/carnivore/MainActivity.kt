@@ -11,12 +11,24 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import com.example.carnivore.data.LessonRepository
 import com.example.carnivore.screens.*
+import com.example.carnivore.storage.FavoritesStorage
 import com.example.carnivore.ui.theme.CarnivoreTheme
+
+// Secondary screens reachable via the "More" tab rather than getting their
+// own slot in the primary bottom nav, to keep the bar from overcrowding.
+private val moreScreens = setOf(
+    AppScreen.SYMPTOMS,
+    AppScreen.FAQ,
+    AppScreen.EXPERTS,
+    AppScreen.FAVORITES,
+    AppScreen.MORE
+)
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        FavoritesStorage.init(applicationContext)
 
         setContent {
             CarnivoreTheme {
@@ -57,24 +69,10 @@ class MainActivity : ComponentActivity() {
                             )
 
                             NavigationBarItem(
-                                selected = currentScreen == AppScreen.SYMPTOMS,
-                                onClick = { currentScreen = AppScreen.SYMPTOMS; selectedDay = null },
-                                icon = { Text("💡") },
-                                label = { Text("Symptoms") }
-                            )
-
-                            NavigationBarItem(
-                                selected = currentScreen == AppScreen.FAQ,
-                                onClick = { currentScreen = AppScreen.FAQ; selectedDay = null },
-                                icon = { Text("❓") },
-                                label = { Text("FAQ") }
-                            )
-
-                            NavigationBarItem(
-                                selected = currentScreen == AppScreen.EXPERTS,
-                                onClick = { currentScreen = AppScreen.EXPERTS; selectedDay = null },
-                                icon = { Text("🎓") },
-                                label = { Text("Experts") }
+                                selected = currentScreen in moreScreens,
+                                onClick = { currentScreen = AppScreen.MORE; selectedDay = null },
+                                icon = { Text("☰") },
+                                label = { Text("More") }
                             )
                         }
                     }
@@ -95,6 +93,8 @@ class MainActivity : ComponentActivity() {
                                 AppScreen.SYMPTOMS -> SymptomsScreen()
                                 AppScreen.FAQ -> FaqScreen()
                                 AppScreen.EXPERTS -> ExpertsScreen()
+                                AppScreen.FAVORITES -> FavoritesScreen()
+                                AppScreen.MORE -> MoreScreen(onNavigate = { currentScreen = it })
                             }
                         }
                     }

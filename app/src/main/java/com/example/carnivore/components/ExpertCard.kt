@@ -56,6 +56,8 @@ fun ExpertCard(expert: Expert) {
                 Text("▶ Watch on YouTube")
             }
 
+            FavoriteToggle(key = "expert:${expert.id}")
+
         }
 
     }
