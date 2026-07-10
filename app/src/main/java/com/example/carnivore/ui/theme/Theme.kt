@@ -28,7 +28,11 @@ private val CarniDarkColorScheme = darkColorScheme(
     surfaceVariant = CarniCharcoal,
     onSurfaceVariant = CarniTextGrey,
     error = CarniRedLight,
-    onError = CarniWhite
+    onError = CarniWhite,
+    // Material3 blends "surfaceTint" (primary) into elevated surfaces like Cards
+    // by default, which tinted our cards lavender/pink instead of clean black/grey.
+    // Setting it transparent keeps surfaces true to the brand palette.
+    surfaceTint = Color.Transparent
 )
 
 private val CarniLightColorScheme = lightColorScheme(
@@ -45,7 +49,9 @@ private val CarniLightColorScheme = lightColorScheme(
     surfaceVariant = CarniGrey,
     onSurfaceVariant = CarniTextGrey,
     error = CarniRedDark,
-    onError = CarniWhite
+    onError = CarniWhite,
+    // Same fix as dark scheme: no red tint bleeding into card surfaces.
+    surfaceTint = Color.Transparent
 )
 
 @Composable
