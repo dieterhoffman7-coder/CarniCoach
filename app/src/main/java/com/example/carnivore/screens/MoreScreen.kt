@@ -22,6 +22,8 @@ data class MoreMenuItem(
 fun MoreScreen(onNavigate: (AppScreen) -> Unit) {
 
     val items = listOf(
+        MoreMenuItem("📚", "Learn", "Evidence-informed topics on how carnivore works", AppScreen.LEARN),
+        MoreMenuItem("🧂", "Electrolyte Calculator", "Estimate your daily sodium, potassium and magnesium targets", AppScreen.ELECTROLYTE_CALCULATOR),
         MoreMenuItem("💡", "Symptoms", "Common symptoms and what to do about them", AppScreen.SYMPTOMS),
         MoreMenuItem("❓", "FAQ", "Answers to common carnivore questions", AppScreen.FAQ),
         MoreMenuItem("🎓", "Experts", "Trusted, evidence-informed carnivore educators", AppScreen.EXPERTS),

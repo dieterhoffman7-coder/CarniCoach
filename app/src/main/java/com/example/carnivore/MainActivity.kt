@@ -21,7 +21,9 @@ private val moreScreens = setOf(
     AppScreen.FAQ,
     AppScreen.EXPERTS,
     AppScreen.FAVORITES,
-    AppScreen.MORE
+    AppScreen.MORE,
+    AppScreen.LEARN,
+    AppScreen.ELECTROLYTE_CALCULATOR
 )
 
 class MainActivity : ComponentActivity() {
@@ -95,6 +97,8 @@ class MainActivity : ComponentActivity() {
                                 AppScreen.EXPERTS -> ExpertsScreen()
                                 AppScreen.FAVORITES -> FavoritesScreen()
                                 AppScreen.MORE -> MoreScreen(onNavigate = { currentScreen = it })
+                                AppScreen.LEARN -> KnowledgeScreen()
+                                AppScreen.ELECTROLYTE_CALCULATOR -> ElectrolyteCalculatorScreen()
                             }
                         }
                     }

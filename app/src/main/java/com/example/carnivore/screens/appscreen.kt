@@ -9,5 +9,7 @@ enum class AppScreen {
     FAQ,
     EXPERTS,
     FAVORITES,
-    MORE
+    MORE,
+    LEARN,
+    ELECTROLYTE_CALCULATOR
 }
