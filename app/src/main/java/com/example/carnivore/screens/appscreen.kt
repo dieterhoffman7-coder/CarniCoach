@@ -12,5 +12,6 @@ enum class AppScreen {
     MORE,
     LEARN,
     ELECTROLYTE_CALCULATOR,
-    PROGRESS_PHOTOS
+    PROGRESS_PHOTOS,
+    MEASUREMENTS
 }

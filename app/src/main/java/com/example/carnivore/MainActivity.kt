@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import com.example.carnivore.data.LessonRepository
 import com.example.carnivore.screens.*
 import com.example.carnivore.storage.FavoritesStorage
+import com.example.carnivore.storage.MeasurementStorage
 import com.example.carnivore.storage.ProgressPhotoStorage
 import com.example.carnivore.ui.theme.CarnivoreTheme
 
@@ -33,6 +34,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         FavoritesStorage.init(applicationContext)
         ProgressPhotoStorage.init(applicationContext)
+        MeasurementStorage.init(applicationContext)
 
         setContent {
             CarnivoreTheme {
@@ -92,7 +94,10 @@ class MainActivity : ComponentActivity() {
                             when (currentScreen) {
                                 AppScreen.HOME -> HomeScreen()
                                 AppScreen.PROGRAM -> ProgramScreen(onLessonSelected = { selectedDay = it })
-                                AppScreen.PROGRESS -> ProgressScreen(onOpenPhotos = { currentScreen = AppScreen.PROGRESS_PHOTOS })
+                                AppScreen.PROGRESS -> ProgressScreen(
+                                    onOpenPhotos = { currentScreen = AppScreen.PROGRESS_PHOTOS },
+                                    onOpenMeasurements = { currentScreen = AppScreen.MEASUREMENTS }
+                                )
                                 AppScreen.FOODS -> FoodsScreen()
                                 AppScreen.SYMPTOMS -> SymptomsScreen()
                                 AppScreen.FAQ -> FaqScreen()
@@ -102,6 +107,7 @@ class MainActivity : ComponentActivity() {
                                 AppScreen.LEARN -> KnowledgeScreen()
                                 AppScreen.ELECTROLYTE_CALCULATOR -> ElectrolyteCalculatorScreen()
                                 AppScreen.PROGRESS_PHOTOS -> ProgressPhotosScreen()
+                                AppScreen.MEASUREMENTS -> MeasurementsScreen()
                             }
                         }
                     }

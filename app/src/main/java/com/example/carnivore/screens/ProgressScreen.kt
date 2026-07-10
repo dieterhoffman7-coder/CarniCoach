@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.example.carnivore.data.ProgressRepository
 
 @Composable
-fun ProgressScreen(onOpenPhotos: () -> Unit = {}) {
+fun ProgressScreen(onOpenPhotos: () -> Unit = {}, onOpenMeasurements: () -> Unit = {}) {
 
     val progress = ProgressRepository.progress
 
@@ -59,22 +59,26 @@ fun ProgressScreen(onOpenPhotos: () -> Unit = {}) {
                 .fillMaxWidth()
                 .clickable { onOpenPhotos() }
         ) {
-
-            Column(
-                modifier = Modifier.padding(16.dp)
-            ) {
-
+            Column(modifier = Modifier.padding(16.dp)) {
                 Text("📸 Progress Photos")
                 Text(
                     text = "Tap to view or add photos",
                     style = MaterialTheme.typography.bodySmall
                 )
+            }
+        }
 
-                Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { onOpenMeasurements() }
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
                 Text("📏 Measurements")
                 Text(
-                    text = "Coming Soon",
+                    text = "Tap to log or view your measurements",
                     style = MaterialTheme.typography.bodySmall
                 )
             }
