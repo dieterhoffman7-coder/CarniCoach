@@ -56,6 +56,20 @@ fun ExpertCard(expert: Expert) {
                 Text("▶ Watch on YouTube")
             }
 
+            if (expert.featuredVideos.isNotEmpty()) {
+                expert.featuredVideos.forEach { video ->
+                    Text(
+                        text = "Featured: ${video.title}",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    TextButton(
+                        onClick = { uriHandler.openUri(video.url) }
+                    ) {
+                        Text("▶ Watch Featured Video")
+                    }
+                }
+            }
+
             FavoriteToggle(key = "expert:${expert.id}")
 
         }

@@ -83,6 +83,12 @@ fun FaqScreen() {
                             text = faq.category,
                             style = MaterialTheme.typography.bodySmall
                         )
+                        if (faq.source.isNotBlank()) {
+                            Text(
+                                text = "Source: ${faq.source}",
+                                style = MaterialTheme.typography.bodySmall
+                            )
+                        }
                     }
                 }
             }

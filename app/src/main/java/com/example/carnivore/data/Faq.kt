@@ -4,5 +4,6 @@ data class Faq(
     val id: Int,
     val question: String,
     val answer: String,
-    val category: String
+    val category: String,
+    val source: String = ""
 )
